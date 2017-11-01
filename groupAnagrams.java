@@ -7,8 +7,8 @@ class Solution {
 			      char[] strChar = src.toCharArray();
 			      Arrays.sort(strChar);
 			      String strSorted = String.valueOf(strChar);
-            if (multiMap.containsKey(strSorted)) {
-                ArrayList<String> aList = multiMap.get(strSorted);
+                              if (multiMap.containsKey(strSorted)) {
+                                        ArrayList<String> aList = multiMap.get(strSorted);
 				        aList.add(src);
 				        multiMap.put(strSorted,  aList);
 			      } else {
