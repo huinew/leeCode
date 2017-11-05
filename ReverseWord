@@ -1,0 +1,39 @@
+package leeCode;
+
+public class ReverseWord {
+	public static void reverse(char[] str, int start, int end) {
+		char tmp;
+		if (str == null 
+			|| (start >= end)) {
+			return;
+		}
+		while(start < end) {
+			tmp = str[start];
+			str[start] = str[end];
+			str[end] = tmp;
+			start++;
+			end--;
+		}
+	}
+	
+	public void reverseWord(char[] strArray) {
+		reverse(strArray, 0, strArray.length - 1);
+		
+		int i = 0;
+		int start = i;
+		for(; i < strArray.length; i++) {
+			if ((strArray[i] == ' ') && strArray[i + 1] != ' ') {
+				reverse(strArray, start, i - 1);
+				start = ++i;
+			}
+		}
+		reverse(strArray, start, strArray.length - 1);
+	}
+	public static void main(String[] args) {
+		String test = "the sky is    blue";
+		ReverseWord rw = new ReverseWord();
+		char[] strArray = test.toCharArray();
+		rw.reverseWord(strArray);
+		System.out.println(strArray);
+	}
+}
